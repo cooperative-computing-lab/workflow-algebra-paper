@@ -670,25 +670,25 @@ is updated after each transformation.
 #!\bin\sh
 #ID TASK_CHECKSUM
 
-# POST function executed on 
+# POST function
 POST(){
   # Store exit code for use in analysis.
   EXIT=$?
   
-  # Run post commands
+  # Run post commands.
   
   # Exit with stored EXIT which may
-  # have been updated.
+  # have been updated by post.
   exit $EXIT
 }
-# Trap on exit and call POST
+# Trap on exit and call POST.
 trap POST EXIT INT TERM
 
-# Export specified environment
+# Export specified environment.
 
-# Run pre commands
+# Run pre commands.
 
-# Run core command
+# Run core command.
 sim.exe < in.txt > out.txt
 \end{verbatim}
 \end{framed}
@@ -817,15 +817,15 @@ define RMonitor(T) {
  "inputs"  : T.inputs + ["rmonitor",
                T.script]
  "outputs" : T.outputs +
-              [{"outer_name="rsum."+ID, 
-               "inner_name"="rsum"}]
+              [{"outer_name="summary."+ID, 
+               "inner_name"="summary"}]
 }
 \end{verbatim}
 \end{framed}
 \caption{Verbose JSON object file specification.} 
 \small
 \emph{In this example the resource monitor uses
-a statically name default summary, "rsum".
+a statically name default summary, "summary".
 In this case, the the summary 
 file is statically named, but will collide in
 the global workflow context. To avert this
@@ -1449,7 +1449,7 @@ Workers were created on each target site,
 and tasks were distributed as worker were 
 scheduled.
 To show the flexibility of transformations,
-workers were created on Stampede2, Comet,
+workers were created on Stampede2,
 Jetstream, and HTCondor.
 The table below shows the task execution
 for each system, 
@@ -1587,8 +1587,10 @@ All of the workflows, transformations, and auxiliary
 programs used to produce this paper, include the tex, found here:
 \begin{framed}
 \noindent
-{\small https://github.com/cooperative-computing-lab/makeflow-transformations-paper/commit/dc285f9}
+{\small https://github.com/cooperative-computing-lab/workflow-algebra-paper/commit/be9d1e4}
 \end{framed}
+\noindent
+As this is self-referential the final commit may be different.
 
 
 All of these repositories are open source and contain Makefiles
