@@ -1,0 +1,5 @@
+{
+	"inputs":inputs,
+	"outputs":outputs,
+	"command":{"command":format("singularity exec --home $(pwd) /scratch365/nhazekam/rhel7.img sh -c %s", cmd)},
+}

@@ -1,0 +1,6 @@
+{
+	"inputs":inputs+["resource_monitor"],
+	"outputs":outputs+[format("resources/resource_%s.summary", id)],
+	"command":{
+		"command":format("./resource_monitor -O resources/resource_%s --sh %s", id, cmd)},
+}

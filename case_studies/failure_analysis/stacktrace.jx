@@ -1,0 +1,9 @@
+{
+	"inputs":inputs,
+	"outputs":[format("ls_%s.dat", id)]+outputs,
+	"command":{
+		"pre":["ulimit -c unlimited"],
+		"command":format("./%s", script),
+		"post":[format("if [ -s core* ]; then gdb div_by_0 core* -ex bt -batch > div_by_0_%s.st; else touch div_by_0_%s.st; fi", id, id), "EXIT=0", format("ls -l > ls_%s.dat", id)],
+	},
+}

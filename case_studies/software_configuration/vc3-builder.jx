@@ -1,0 +1,13 @@
+{
+	"inputs":inputs+ ["vc3-builder", "manual-distribution.tar.gz"],
+	"outputs":[format("builder_%s.log", id)]+outputs,
+	"command":{
+		"pre":[ "mkdir -p vc3-distfiles",
+				"cp manual-distribution.tar.gz vc3-distfiles",
+				"cd vc3-distfiles",
+				"tar xzf manual-distribution.tar.gz",
+				"cd ..",
+		],
+		"command":format("./vc3-builder --make-jobs 8 --home $PWD --require maker -- ./%s > builder_%s.log", script, id),
+	},
+}

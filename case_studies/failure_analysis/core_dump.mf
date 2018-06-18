@@ -1,0 +1,20 @@
+{
+"rules" : [{
+		"inputs":["div_by_0"],
+		"outputs":[format("output.%d", i)],
+		"command":format(" touch output.%d ; ./div_by_0 %d ;", i , i),
+	} for i in range(1, LIMIT),
+	{
+		"inputs": [ format("output.%d", i) for i in range(1, LIMIT)],
+		"outputs":["output"],
+		"command":" touch output ;",
+	},
+	{
+		"inputs": ["output"],
+		"outputs":[format("core_result_%d", LIMIT)],
+		"command":format("touch core_result_%d", LIMIT),
+	},
+	],
+}
+
+

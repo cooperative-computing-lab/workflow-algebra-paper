@@ -1,0 +1,48 @@
+#!/usr/bin/perl
+
+#Copyright (C) 2013- The University of Notre Dame
+#This software is distributed under the GNU General Public License.
+#See the file COPYING for details.
+#
+#
+#This script is used to cat SAM files into a single result
+#
+# Usage: cat_bwa output input1 input2 ... intput*
+#
+# Author: Nick Hazekamp
+# Date: 11/01/2013
+#
+# Revised: Caitlin Guccione
+# Date: 06/14/2017
+#
+
+my $output = shift;
+if (-e $output) {
+	unlink($output) || die "Could not delete $output";
+}
+
+open $OUT,'>>',$output or die("Could not open " + $output + " file.");
+
+my $num_files = 0;
+
+while ($in = shift) {
+
+	my @files = glob($in);
+	
+	for my $file (@files){
+		++$num_files;
+		open(IN,$file) or die("Could not open " + $file + " file.");
+		$print = 0;
+		while(my $line = <IN>) {
+			if (($line =~ /^@/) and ($num_files ne 1)) { $print = 0;}
+			elsif (($line =~ /main/)) { $print = 0; }
+			elsif (($line =~ /M::/)) { $print = 0; }
+			else { $print = 1; }
+			if ($print gt 0){
+				print { $OUT } $line;
+			}
+		}
+		close (IN);
+	}
+}
+close (OUT);

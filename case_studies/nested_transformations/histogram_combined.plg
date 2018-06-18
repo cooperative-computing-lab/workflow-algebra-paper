@@ -1,0 +1,22 @@
+set term  pdfcairo monochrome
+set output 
+
+set title "Transformed Tasks Execution Distribution"
+
+set palette gray
+
+set boxwidth 1
+set style fill pattern 1
+set xtic rotate by -45 scale 0
+set xtic 0,5
+set xrange [0:]
+
+set key left top
+
+set ylabel "Number of Tasks"
+set xlabel "Task Execution (Seconds)"
+
+plot 'result_1.dat' using ($1-1):2 with boxes title "Singularity-Resource Monitor", \
+     'result_2.dat' using ($1+0):2 with boxes title "Singularity", \
+     'result_3.dat' using ($1+1):2 with boxes title "Resource Monitor", \
+     'result_4.dat' using ($1+2):2 with boxes title "Sandbox"

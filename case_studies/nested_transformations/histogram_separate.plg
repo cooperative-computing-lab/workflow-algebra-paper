@@ -1,0 +1,60 @@
+set term  pdfcairo monochrome font "Arial, 12" size 3.0,2.8
+set output 
+
+set lmargin at screen 0.15
+set rmargin at screen 0.95
+
+TOP=0.98
+DY =0.21
+
+set boxwidth 5
+set style fill solid 0.25 border
+set multiplot
+set offset 0,0,0,0
+
+set xrange [0:100]
+set yrange [0:20]
+set xtic 0,10,90
+set ytic 0,5,15
+set xtic rotate by -45 scale 0.25
+set xlabel "Task Execution (Seconds)" offset 0,0.25,0
+unset key
+
+set label 1 "Sandbox" at 5,15
+
+set tmargin at screen TOP-3*DY
+set bmargin at screen TOP-4*DY
+plot 'result_4.dat' using 1:2 with boxes lc rgb "black"
+
+
+unset label 1
+set label 2 "Resource Monitor" at 5,15
+
+set xtics format ''
+unset xlabel
+
+set ylabel "Number of Tasks" offset 1,2,0
+set tmargin at screen TOP-2*DY
+set bmargin at screen TOP-3*DY
+plot 'result_3.dat' using 1:2 with boxes lc rgb "black"
+
+
+unset ylabel
+
+unset label 2
+set label 3 "Singularity" at 5,15
+
+set tmargin at screen TOP-1*DY
+set bmargin at screen TOP-2*DY
+plot 'result_2.dat' using 1:2 with boxes lc rgb "black"
+
+
+unset label 3
+set label 4 "Singularity-Resource Monitor" at 5,15
+
+set tmargin at screen TOP-0*DY
+set bmargin at screen TOP-1*DY
+plot 'result_1.dat' using 1:2 with boxes lc rgb "black"
+
+
+unset multiplot

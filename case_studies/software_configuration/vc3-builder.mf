@@ -1,0 +1,21 @@
+{
+"categories" : { "test":{ "cores":8, "memory":2000, "disk":10000 }},
+"default_category": "test",
+"rules" : [{
+		"outputs":[format("mf.%d", i)],
+		"command":format(" maker -v > mf.%d ;" , i),
+	} for i in range(1, LIMIT),
+	{
+		"inputs": [ format("mf.%d", i) for i in range(1, LIMIT)],
+		"outputs":["output"],
+		"command":" touch output ;",
+	},
+	{
+		"inputs": ["output"],
+		"outputs":[format("mf_%d", LIMIT)],
+		"command":format("touch mf_%d", LIMIT),
+	},
+	],
+}
+
+
