@@ -45,10 +45,6 @@ dthain@nd.edu}
 
 \begin{abstract}
 Scientific workflows 
-%define a set of tasks 
-%and their interdependencies
-%which encompass all work to be done.
-%These workflows 
 are often designed with a
 particular compute site in mind.
 As the site changes,
@@ -206,7 +202,7 @@ a sandbox to isolate the available files and workspace.
 The second shows a failure handler that captures a
 core dump and converts it into a stacktrace, 
 streamlining analysis and lower data transfer.
-The third executes the same workflow on
+The final case study executes the same workflow on
 several sites using an environment builder 
 that dynamically builds required software at each task. 
 
@@ -416,7 +412,7 @@ is expressed in JSON like this:
 
 \begin{figure}[H]
 \begin{framed}
-\small
+%\small
 \begin{verbatim}
 let T1 = {
  "command": {
@@ -505,6 +501,7 @@ filesystem.}
 
 \begin{figure}[t]
 \begin{framed}
+%\small
 \begin{verbatim}
 define Singularity(T) 
 {
@@ -539,40 +536,6 @@ undefined.}
 \end{figure}
 
 
-\begin{figure}[t]
-\begin{framed}
-\begin{verbatim}
-eval Singularity(T1) yields
-{
- "command": {
-   "pre":[ ],
-   "cmd": "singularity run image " +
-          "t_ID.sh > log.ID"
-   "post":[ ],
- },
- "inputs"   : ["sim.exe", "in.txt", 
-               "image", "t_ID.sh" ],
- "outputs"  : ["out.txt", 
-               "log.ID"],
- "environment" : {}
- "resources" : {
-   "cores"  : 1, 
-   "memory" : 1G, 
-   "disk"   : 13G,
-  }
-}
-\end{verbatim}
-\end{framed}
-\caption{Resulting task of applying {\tt Singularity} to {\tt T1}.}
-\small
-\emph{The transformed task has all of the variables bound.
-The file lists have combined the previously defined files
-with the files added by {\tt Singularity}.
-The resources are resolved and the required values account
-for the original task and the transformation.}
-\label{sing-task}
-\end{figure}
-
 
 \subsection{Transformations as Functions}
 
@@ -605,6 +568,42 @@ underlying resource.
 Additionally, the Singularity transformation 
 does not
 define an environment, so it is left out. 
+
+
+\begin{figure}[t]
+\begin{framed}
+%\small
+\begin{verbatim}
+eval Singularity(T1) yields
+{
+ "command": {
+   "pre":[ ],
+   "cmd": "singularity run image " +
+          "t_ID.sh > log.ID"
+   "post":[ ],
+ },
+ "inputs"   : ["sim.exe", "in.txt", 
+               "image", "t_ID.sh" ],
+ "outputs"  : ["out.txt", 
+               "log.ID"],
+ "environment" : {}
+ "resources" : {
+   "cores"  : 1, 
+   "memory" : 1G, 
+   "disk"   : 13G,
+  }
+}
+\end{verbatim}
+\end{framed}
+\caption{Resulting task of applying {\tt Singularity} to {\tt T1}.}
+\small
+\emph{The transformed task has all of the variables bound.
+The file lists have combined the previously defined files
+with the files added by {\tt Singularity}.
+The resources are resolved and the required values account
+for the original task and the transformation.}
+\label{sing-task}
+\end{figure}
 
 
 The resulting task of evaluating 
@@ -809,6 +808,7 @@ monitor transformation.
 
 \begin{figure}[h]
 \begin{framed}
+\small
 \begin{verbatim}
 define RMonitor(T) {
  "command" : [
@@ -1182,17 +1182,17 @@ exit code or outputs.
 
 \subsection{Resource usage in a Container}
 Resource monitoring helps to build an understanding of how
-a task behaves and more accurately assign resources. 
+a task behaves to accurately assign resources. 
 If the task requires a container for execution, the 
 resources utilized may be mischaracterized. 
 As a result, it is useful to be able to separate the
-resource utilization of the task and that of the container.
+resource utilization of the task and the container.
 To do this, we first applied a 
 resources monitor transformation to the task
 which will measure the resources used only
 by the task.
 Second, we applied the container transformation
-that allows for the application to be run on 
+that allows for the application to run on 
 different platforms.
 
 The definitions of the these transformations can
@@ -1232,7 +1232,7 @@ filesystem the image is transferred
 and affects performance.
 
 
-\begin{figure}
+\begin{figure}[h]
 \includegraphics[width=\columnwidth]{graphics/divide_hist.pdf}
 \caption{Histogram of task execution with nested transformations.}
 \small
@@ -1288,8 +1288,9 @@ the program failure.
 We implemented this transformation as 
 seen in \Cref{stacktrace}.
 
-\begin{figure}[h]
+\begin{figure}[H]
 \begin{framed}
+\small
 \begin{verbatim}
 define StackTrace(T) {
  "command" : [
@@ -1404,6 +1405,7 @@ and prepare for {\tt vc3-builder}.
 
 \begin{figure}
 \begin{framed}
+%\small
 \begin{verbatim}
 define VC3-Builder(T) {
  "inputs" : T.inputs + ["vc3-builer",
@@ -1456,14 +1458,14 @@ all of which were calculated using a single workflow.
 
 %\begin{figure}[h]
 \begin{center}
-\begin{tabular}{| r | r | r | r | r |}
+\begin{tabular}{| c | r | r | r |}
 \hline
 Build Time
-  & \multicolumn{1}{|c|}{Comet} 
   & \multicolumn{1}{|c|}{Stampede2} 
+%  & \multicolumn{1}{|c|}{SGE} 
   & \multicolumn{1}{|c|}{Jetstream} 
   & \multicolumn{1}{|c|}{HTCondor} \\ \hline
- (HH:MM) & --:-- & 01:29 & 00:22 & 00:30 \\ \hline
+ (HH:MM) & 01:29 & 00:22 & 00:30 \\ \hline
 \end{tabular}
 %\caption{MAKER build-times using VC3-Builder on several platforms.}
 %\label{table:vc3-build-time}
