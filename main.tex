@@ -11,21 +11,12 @@
 \usepackage{graphicx}
 \usepackage{cleveref}
 
-%\newcommand{\mf}{(Workflow Management System)\ }
-
-\newcommand{\mf}{Makeflow\ }
 
 \begin{document}
 \title{An Algebra for Robust Workflow Transformations}
-%\title{Improving the Portability and Robustness of Scientific Workflows with an Algebra for Workflow Transformations}
-%\title{An Algebra on Scientific Workflows for Portability and Robustness}
 
-\author{
-\IEEEauthorblockN{Author Blinded for Review}
-\IEEEauthorblockA{University\\
-USA\\
-person@site.edu}
-}
+
+
 \author{
 \IEEEauthorblockN{Nicholas Hazekamp}
 \IEEEauthorblockA{University of Notre Dame \\
@@ -38,7 +29,7 @@ Notre Dame, Indiana 46556 \\
 dthain@nd.edu}
 }
 
-\date{28 March 2017}
+\date{18 June 2018}
 
 
 \maketitle
@@ -76,7 +67,7 @@ We define an algebra to reason about task transformations
 at the workflow level and express it
 in a declarative form using JSON.
 We implemented this algebra in the
-\mf workflow system and demonstrate
+Makeflow workflow system and demonstrate
 how transformations can be used for 
 resource monitoring, failure analysis, and software deployment across three sites.
 \end{abstract}
@@ -109,7 +100,7 @@ Often these workflows are designed for a
 specific site, failing when
 moved to different sites.
 
-% OC
+
 Differences between execution sites
 makes porting workflows hard 
 and makes debugging complex. 
@@ -124,7 +115,7 @@ The tasks themselves do not change,
 but the environment, error handling, and configuration 
 may.
 
-%NEEDS WORK
+
 A typical use case is the 
 need to deploy the same operating system and
 software stack on several available
@@ -450,7 +441,7 @@ manager.
 \subsection{Semantics}
 \label{sec:sandboxing}
 
-\mf allows for tasks in this form to be executed on a wide
+Makeflow allows for tasks in this form to be executed on a wide
 variety of execution platforms, including traditional batch
 systems (such as 
 SLURM\cite{Jette02slurm:simple}, 
@@ -1195,11 +1186,11 @@ Second, we applied the container transformation
 that allows for the application to run on 
 different platforms.
 
-The definitions of the these transformations can
+The definitions of these transformations can
 be seen earlier in \Cref{sing-wrap} and \Cref{json-file}
 for Singularity and the resource monitor respectively.
 To visualize the complexity that occurs when combining these
-\Cref{figure:wrapping-of-task} illustrates each tranformation.
+\Cref{figure:wrapping-of-task} illustrates each transformation.
 
 
 \begin{framed}
@@ -1282,7 +1273,7 @@ A common default uses the "core" prefix for
 core dumps, but also limits their size. 
 To accommodate this, we set the $ulimit$
 to unlimited. After execution, if a 
-core-dump was create we process it using GDB.
+core-dump was created we process it using GDB.
 This creates a stack trace that condenses
 the program failure.
 We implemented this transformation as 
@@ -1378,7 +1369,7 @@ a bioinformatic analysis pipeline which relies
 on 39 separate packages and a installed size of 4.2G.
 A MAKER installation requires careful
 dependency management as several tools rely
-on hardcoded and installation specific paths
+on hard-coded, installation specific paths
 and installing by hand can take several hour.
 As a result, MAKER is often limited to a single
 carefully configured site.
@@ -1426,7 +1417,7 @@ define VC3-Builder(T) {
 \end{framed}
 \caption{VC3-Builder Transformation}
 \small
-\emph{VC3-Builder typically  
+\emph{VC3-Builder is typically  
 self-contained, and the specified
 $cmd$ is sufficient for most software.
 MAKER, however, relies on several libraries
@@ -1492,7 +1483,7 @@ not address many of the
 issue mentioned earlier, such
 as name collisions, command
 nesting, and execution evaluation.
-Instead swift focuses on compiler-like
+Instead Swift focuses on compiler-like
 optimizations for grouping work\cite{Armstrong:2014:CTM:2683593.2683627}.
 Pegasus\cite{pegasus} focuses on planning the
 execution prior to submission.
