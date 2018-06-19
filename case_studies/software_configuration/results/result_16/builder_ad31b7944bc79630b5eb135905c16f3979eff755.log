@@ -1,0 +1,694 @@
+.Plan:    vc3-builder-hands => [, ]
+.Try:     vc3-builder-hands => v1.0.0
+.Refining version: vc3-builder-hands v1.0.0 => [, ]
+..Plan:    tar => [v1.0, ]
+..Try:     tar => v1.26.0
+..Refining version: tar v1.26 => [v1.0.0, ]
+..Success: tar v1.26.0 => [v1.0.0, ]
+..Plan:    sed => [v4.2.0, ]
+..Try:     sed => v4.2.2
+..Refining version: sed 4.2.2 => [v4.2.0, ]
+..Success: sed v4.2.2 => [v4.2.0, ]
+..Plan:    make => [v3.82.0, ]
+..Try:     make => v3.82.0
+..Refining version: make v3.82 => [v3.82.0, ]
+..Success: make v3.82.0 => [v3.82.0, ]
+..Plan:    pkg-config => [v0.23.0, ]
+..Try:     pkg-config => v0.27.1
+..Refining version: pkg-config 0.27.1 => [v0.23.0, ]
+..Success: pkg-config v0.27.1 => [v0.23.0, ]
+..Plan:    which => [v1.00.0, ]
+..Try:     which => v2.20.0
+..Refining version: which v2.20.0 => [v1.0.0, ]
+..Success: which v2.20.0 => [v1.0.0, ]
+..Plan:    gzip => [v1.0, ]
+..Try:     gzip => v1.5.0
+..Refining version: gzip v1.5 => [v1.0.0, ]
+..Success: gzip v1.5.0 => [v1.0.0, ]
+.Success: vc3-builder-hands v1.0.0 => [, ]
+.Plan:    maker => [, ]
+.Try:     maker => v2.31.0
+.Refining version: maker v2.31 => [, ]
+..Plan:    perl-lwp-simple => [v6.15, ]
+..Try:     perl-lwp-simple => v6.15.0
+..Refining version: perl-lwp-simple v6.15 => [v6.15.0, ]
+...Plan:    perl-cpanminus => [, ]
+...Try:     perl-cpanminus => v1.7.0
+...Refining version: perl-cpanminus v1.7 => [, ]
+....Plan:    perl-local-lib => [v2.0, ]
+....Try:     perl-local-lib => v2.19.0
+....Refining version: perl-local-lib v2.19 => [v2.0.0, ]
+.....Plan:    perl => [v5.10, ]
+.....Try:     perl => v5.16.3
+.....Refining version: perl 5.16.3 => [v5.10.0, ]
+......Plan:    perl-vc3-modules => [v0.5.0, ]
+......Try:     perl-vc3-modules => v0.5.0
+......Refining version: perl-vc3-modules v0.5.0 => [v0.5.0, ]
+......Success: perl-vc3-modules v0.5.0 => [v0.5.0, ]
+.....Success: perl v5.16.3 => [v5.10.0, ]
+....Success: perl-local-lib v2.19.0 => [v2.0.0, ]
+...Success: perl-cpanminus v1.7.0 => [, ]
+..Success: perl-lwp-simple v6.15.0 => [v6.15.0, ]
+..Plan:    perl-file-which => [v1.2, ]
+..Try:     perl-file-which => v1.2.0
+..Refining version: perl-file-which v1.2 => [v1.2.0, ]
+...Plan:    perl-cpanminus => [, ]
+...Try:     perl-cpanminus => v1.7.0
+...Refining version: perl-cpanminus v1.7 => [, ]
+....Plan:    perl-local-lib => [v2.0, ]
+....Try:     perl-local-lib => v2.19.0
+....Refining version: perl-local-lib v2.19 => [v2.0.0, ]
+.....Plan:    perl => [v5.10, ]
+.....Try:     perl => v5.16.3
+.....Refining version: perl 5.16.3 => [v5.10.0, ]
+......Plan:    perl-vc3-modules => [v0.5.0, ]
+......Try:     perl-vc3-modules => v0.5.0
+......Refining version: perl-vc3-modules v0.5.0 => [v0.5.0, ]
+......Success: perl-vc3-modules v0.5.0 => [v0.5.0, ]
+.....Success: perl v5.16.3 => [v5.10.0, ]
+....Success: perl-local-lib v2.19.0 => [v2.0.0, ]
+...Success: perl-cpanminus v1.7.0 => [, ]
+..Success: perl-file-which v1.2.0 => [v1.2.0, ]
+..Plan:    perl-inline-c => [v0.76, ]
+..Try:     perl-inline-c => v0.76.0
+..Refining version: perl-inline-c v0.76 => [v0.76.0, ]
+...Plan:    perl-cpanminus => [, ]
+...Try:     perl-cpanminus => v1.7.0
+...Refining version: perl-cpanminus v1.7 => [, ]
+....Plan:    perl-local-lib => [v2.0, ]
+....Try:     perl-local-lib => v2.19.0
+....Refining version: perl-local-lib v2.19 => [v2.0.0, ]
+.....Plan:    perl => [v5.10, ]
+.....Try:     perl => v5.16.3
+.....Refining version: perl 5.16.3 => [v5.10.0, ]
+......Plan:    perl-vc3-modules => [v0.5.0, ]
+......Try:     perl-vc3-modules => v0.5.0
+......Refining version: perl-vc3-modules v0.5.0 => [v0.5.0, ]
+......Success: perl-vc3-modules v0.5.0 => [v0.5.0, ]
+.....Success: perl v5.16.3 => [v5.10.0, ]
+....Success: perl-local-lib v2.19.0 => [v2.0.0, ]
+...Success: perl-cpanminus v1.7.0 => [, ]
+..Success: perl-inline-c v0.76.0 => [v0.76.0, ]
+..Plan:    perl-forks => [v0.36, ]
+..Try:     perl-forks => v0.36.0
+..Refining version: perl-forks v0.36 => [v0.36.0, ]
+...Plan:    perl-cpanminus => [, ]
+...Try:     perl-cpanminus => v1.7.0
+...Refining version: perl-cpanminus v1.7 => [, ]
+....Plan:    perl-local-lib => [v2.0, ]
+....Try:     perl-local-lib => v2.19.0
+....Refining version: perl-local-lib v2.19 => [v2.0.0, ]
+.....Plan:    perl => [v5.10, ]
+.....Try:     perl => v5.16.3
+.....Refining version: perl 5.16.3 => [v5.10.0, ]
+......Plan:    perl-vc3-modules => [v0.5.0, ]
+......Try:     perl-vc3-modules => v0.5.0
+......Refining version: perl-vc3-modules v0.5.0 => [v0.5.0, ]
+......Success: perl-vc3-modules v0.5.0 => [v0.5.0, ]
+.....Success: perl v5.16.3 => [v5.10.0, ]
+....Success: perl-local-lib v2.19.0 => [v2.0.0, ]
+...Success: perl-cpanminus v1.7.0 => [, ]
+..Success: perl-forks v0.36.0 => [v0.36.0, ]
+..Plan:    perl-want => [v0.29, ]
+..Try:     perl-want => v0.29.0
+..Refining version: perl-want v0.29 => [v0.29.0, ]
+...Plan:    perl-cpanminus => [, ]
+...Try:     perl-cpanminus => v1.7.0
+...Refining version: perl-cpanminus v1.7 => [, ]
+....Plan:    perl-local-lib => [v2.0, ]
+....Try:     perl-local-lib => v2.19.0
+....Refining version: perl-local-lib v2.19 => [v2.0.0, ]
+.....Plan:    perl => [v5.10, ]
+.....Try:     perl => v5.16.3
+.....Refining version: perl 5.16.3 => [v5.10.0, ]
+......Plan:    perl-vc3-modules => [v0.5.0, ]
+......Try:     perl-vc3-modules => v0.5.0
+......Refining version: perl-vc3-modules v0.5.0 => [v0.5.0, ]
+......Success: perl-vc3-modules v0.5.0 => [v0.5.0, ]
+.....Success: perl v5.16.3 => [v5.10.0, ]
+....Success: perl-local-lib v2.19.0 => [v2.0.0, ]
+...Success: perl-cpanminus v1.7.0 => [, ]
+..Success: perl-want v0.29.0 => [v0.29.0, ]
+..Plan:    openmpi => [v1.10, ]
+..Try:     openmpi => v1.10.0
+..Refining version: openmpi v1.10 => [v1.10.0, ]
+...Plan:    c-build-environment => [v1.0, ]
+...Try:     c-build-environment => v1.0.0
+...Refining version: c-build-environment v1.0 => [v1.0.0, ]
+....Plan:    make => [v3.5, ]
+....Try:     make => v3.82.0
+....Refining version: make v3.82 => [v3.5.0, ]
+....Success: make v3.82.0 => [v3.5.0, ]
+....Plan:    gcc => [v4.5, ]
+....Try:     gcc => v4.8.5
+....Refining version: gcc 4.8.5 => [v4.5.0, ]
+....Success: gcc v4.8.5 => [v4.5.0, ]
+...Success: c-build-environment v1.0.0 => [v1.0.0, ]
+..Success: openmpi v1.10.0 => [v1.10.0, ]
+..Plan:    perl-unsafe-signals => [v0.3, ]
+..Try:     perl-unsafe-signals => v0.3.0
+..Refining version: perl-unsafe-signals v0.3 => [v0.3.0, ]
+...Plan:    perl-cpanminus => [, ]
+...Try:     perl-cpanminus => v1.7.0
+...Refining version: perl-cpanminus v1.7 => [, ]
+....Plan:    perl-local-lib => [v2.0, ]
+....Try:     perl-local-lib => v2.19.0
+....Refining version: perl-local-lib v2.19 => [v2.0.0, ]
+.....Plan:    perl => [v5.10, ]
+.....Try:     perl => v5.16.3
+.....Refining version: perl 5.16.3 => [v5.10.0, ]
+......Plan:    perl-vc3-modules => [v0.5.0, ]
+......Try:     perl-vc3-modules => v0.5.0
+......Refining version: perl-vc3-modules v0.5.0 => [v0.5.0, ]
+......Success: perl-vc3-modules v0.5.0 => [v0.5.0, ]
+.....Success: perl v5.16.3 => [v5.10.0, ]
+....Success: perl-local-lib v2.19.0 => [v2.0.0, ]
+...Success: perl-cpanminus v1.7.0 => [, ]
+..Success: perl-unsafe-signals v0.3.0 => [v0.3.0, ]
+..Plan:    repeatmasker => [v4.0.6, ]
+..Try:     repeatmasker => v4.0.6
+..Refining version: repeatmasker v4.0.6 => [v4.0.6, ]
+...Plan:    repeatmasker-free => [v4.0.6, ]
+...Try:     repeatmasker-free => v4.0.6
+...Refining version: repeatmasker-free v4.0.6 => [v4.0.6, ]
+....Plan:    perl => [v5.8, ]
+....Try:     perl => v5.16.3
+....Refining version: perl 5.16.3 => [v5.8.0, ]
+.....Plan:    perl-vc3-modules => [v0.5.0, ]
+.....Try:     perl-vc3-modules => v0.5.0
+.....Refining version: perl-vc3-modules v0.5.0 => [v0.5.0, ]
+.....Success: perl-vc3-modules v0.5.0 => [v0.5.0, ]
+....Success: perl v5.16.3 => [v5.8.0, ]
+....Plan:    ncbi-rmblastn => [v2.2.28, ]
+....Try:     ncbi-rmblastn => v2.2.28
+....Refining version: ncbi-rmblastn v2.2.28 => [v2.2.28, ]
+....Success: ncbi-rmblastn v2.2.28 => [v2.2.28, ]
+....Plan:    hmmer => [v3.1, ]
+....Try:     hmmer => v3.1.0
+....Refining version: hmmer v3.1 => [v3.1.0, ]
+.....Plan:    openmpi => [v1.10, ]
+.....Try:     openmpi => v1.10.0
+.....Refining version: openmpi v1.10 => [v1.10.0, ]
+......Plan:    c-build-environment => [v1.0, ]
+......Try:     c-build-environment => v1.0.0
+......Refining version: c-build-environment v1.0 => [v1.0.0, ]
+.......Plan:    make => [v3.5, ]
+.......Try:     make => v3.82.0
+.......Refining version: make v3.82 => [v3.5.0, ]
+.......Success: make v3.82.0 => [v3.5.0, ]
+.......Plan:    gcc => [v4.5, ]
+.......Try:     gcc => v4.8.5
+.......Refining version: gcc 4.8.5 => [v4.5.0, ]
+.......Success: gcc v4.8.5 => [v4.5.0, ]
+......Success: c-build-environment v1.0.0 => [v1.0.0, ]
+.....Success: openmpi v1.10.0 => [v1.10.0, ]
+.....Plan:    c-build-environment => [v1.0, ]
+.....Try:     c-build-environment => v1.0.0
+.....Refining version: c-build-environment v1.0 => [v1.0.0, ]
+......Plan:    make => [v3.5, ]
+......Try:     make => v3.82.0
+......Refining version: make v3.82 => [v3.5.0, ]
+......Success: make v3.82.0 => [v3.5.0, ]
+......Plan:    gcc => [v4.5, ]
+......Try:     gcc => v4.8.5
+......Refining version: gcc 4.8.5 => [v4.5.0, ]
+......Success: gcc v4.8.5 => [v4.5.0, ]
+.....Success: c-build-environment v1.0.0 => [v1.0.0, ]
+....Success: hmmer v3.1.0 => [v3.1.0, ]
+....Plan:    ncbi-blast => [v2.2.28, ]
+....Try:     ncbi-blast => v2.2.28
+....Refining version: ncbi-blast v2.2.28 => [v2.2.28, ]
+....Success: ncbi-blast v2.2.28 => [v2.2.28, ]
+....Plan:    perl-text-soundex => [v3.0, ]
+....Try:     perl-text-soundex => v3.0.0
+....Refining version: perl-text-soundex v3.0 => [v3.0.0, ]
+.....Plan:    perl-cpanminus => [, ]
+.....Try:     perl-cpanminus => v1.7.0
+.....Refining version: perl-cpanminus v1.7 => [, ]
+......Plan:    perl-local-lib => [v2.0, ]
+......Try:     perl-local-lib => v2.19.0
+......Refining version: perl-local-lib v2.19 => [v2.0.0, ]
+.......Plan:    perl => [v5.10, ]
+.......Try:     perl => v5.16.3
+.......Refining version: perl 5.16.3 => [v5.10.0, ]
+........Plan:    perl-vc3-modules => [v0.5.0, ]
+........Try:     perl-vc3-modules => v0.5.0
+........Refining version: perl-vc3-modules v0.5.0 => [v0.5.0, ]
+........Success: perl-vc3-modules v0.5.0 => [v0.5.0, ]
+.......Success: perl v5.16.3 => [v5.10.0, ]
+......Success: perl-local-lib v2.19.0 => [v2.0.0, ]
+.....Success: perl-cpanminus v1.7.0 => [, ]
+....Success: perl-text-soundex v3.0.0 => [v3.0.0, ]
+....Plan:    repeatmasker-common => [v4.0.6, ]
+....Try:     repeatmasker-common => v4.0.6
+....Refining version: repeatmasker-common v4.0.6 => [v4.0.6, ]
+....Success: repeatmasker-common v4.0.6 => [v4.0.6, ]
+....Plan:    trf => [v4.0.9, ]
+....Try:     trf => v4.9.0
+....Refining version: trf v4.9 => [v4.0.9, ]
+....Success: trf v4.9.0 => [v4.0.9, ]
+...Success: repeatmasker-free v4.0.6 => [v4.0.6, ]
+..Success: repeatmasker v4.0.6 => [v4.0.6, ]
+..Plan:    perl-io-all => [v0.86, ]
+..Try:     perl-io-all => v0.86.0
+..Refining version: perl-io-all v0.86 => [v0.86.0, ]
+...Plan:    perl-cpanminus => [, ]
+...Try:     perl-cpanminus => v1.7.0
+...Refining version: perl-cpanminus v1.7 => [, ]
+....Plan:    perl-local-lib => [v2.0, ]
+....Try:     perl-local-lib => v2.19.0
+....Refining version: perl-local-lib v2.19 => [v2.0.0, ]
+.....Plan:    perl => [v5.10, ]
+.....Try:     perl => v5.16.3
+.....Refining version: perl 5.16.3 => [v5.10.0, ]
+......Plan:    perl-vc3-modules => [v0.5.0, ]
+......Try:     perl-vc3-modules => v0.5.0
+......Refining version: perl-vc3-modules v0.5.0 => [v0.5.0, ]
+......Success: perl-vc3-modules v0.5.0 => [v0.5.0, ]
+.....Success: perl v5.16.3 => [v5.10.0, ]
+....Success: perl-local-lib v2.19.0 => [v2.0.0, ]
+...Success: perl-cpanminus v1.7.0 => [, ]
+..Success: perl-io-all v0.86.0 => [v0.86.0, ]
+..Plan:    perl-bit-vector => [v7.4, ]
+..Try:     perl-bit-vector => v7.4.0
+..Refining version: perl-bit-vector v7.4 => [v7.4.0, ]
+...Plan:    perl-cpanminus => [, ]
+...Try:     perl-cpanminus => v1.7.0
+...Refining version: perl-cpanminus v1.7 => [, ]
+....Plan:    perl-local-lib => [v2.0, ]
+....Try:     perl-local-lib => v2.19.0
+....Refining version: perl-local-lib v2.19 => [v2.0.0, ]
+.....Plan:    perl => [v5.10, ]
+.....Try:     perl => v5.16.3
+.....Refining version: perl 5.16.3 => [v5.10.0, ]
+......Plan:    perl-vc3-modules => [v0.5.0, ]
+......Try:     perl-vc3-modules => v0.5.0
+......Refining version: perl-vc3-modules v0.5.0 => [v0.5.0, ]
+......Success: perl-vc3-modules v0.5.0 => [v0.5.0, ]
+.....Success: perl v5.16.3 => [v5.10.0, ]
+....Success: perl-local-lib v2.19.0 => [v2.0.0, ]
+...Success: perl-cpanminus v1.7.0 => [, ]
+..Success: perl-bit-vector v7.4.0 => [v7.4.0, ]
+..Plan:    perl-bioperl => [v1.6, ]
+..Try:     perl-bioperl => v1.6.0
+..Refining version: perl-bioperl v1.6 => [v1.6.0, ]
+...Plan:    berkeley-db => [v6.0, ]
+...Try:     berkeley-db => v6.2.23
+...Refining version: berkeley-db v6.2.23 => [v6.0.0, ]
+....Plan:    c-build-environment => [v1.0, ]
+....Try:     c-build-environment => v1.0.0
+....Refining version: c-build-environment v1.0 => [v1.0.0, ]
+.....Plan:    make => [v3.5, ]
+.....Try:     make => v3.82.0
+.....Refining version: make v3.82 => [v3.5.0, ]
+.....Success: make v3.82.0 => [v3.5.0, ]
+.....Plan:    gcc => [v4.5, ]
+.....Try:     gcc => v4.8.5
+.....Refining version: gcc 4.8.5 => [v4.5.0, ]
+.....Success: gcc v4.8.5 => [v4.5.0, ]
+....Success: c-build-environment v1.0.0 => [v1.0.0, ]
+...Success: berkeley-db v6.2.23 => [v6.0.0, ]
+...Plan:    perl-DB_File => [v1.8, ]
+...Try:     perl-DB_File => v1.8.0
+...Refining version: perl-DB_File v1.8 => [v1.8.0, ]
+....Plan:    perl => [v5.10, ]
+....Try:     perl => v5.16.3
+....Refining version: perl 5.16.3 => [v5.10.0, ]
+.....Plan:    perl-vc3-modules => [v0.5.0, ]
+.....Try:     perl-vc3-modules => v0.5.0
+.....Refining version: perl-vc3-modules v0.5.0 => [v0.5.0, ]
+.....Success: perl-vc3-modules v0.5.0 => [v0.5.0, ]
+....Success: perl v5.16.3 => [v5.10.0, ]
+....Plan:    berkeley-db => [v6.0, ]
+....Try:     berkeley-db => v6.2.23
+....Refining version: berkeley-db v6.2.23 => [v6.0.0, ]
+.....Plan:    c-build-environment => [v1.0, ]
+.....Try:     c-build-environment => v1.0.0
+.....Refining version: c-build-environment v1.0 => [v1.0.0, ]
+......Plan:    make => [v3.5, ]
+......Try:     make => v3.82.0
+......Refining version: make v3.82 => [v3.5.0, ]
+......Success: make v3.82.0 => [v3.5.0, ]
+......Plan:    gcc => [v4.5, ]
+......Try:     gcc => v4.8.5
+......Refining version: gcc 4.8.5 => [v4.5.0, ]
+......Success: gcc v4.8.5 => [v4.5.0, ]
+.....Success: c-build-environment v1.0.0 => [v1.0.0, ]
+....Success: berkeley-db v6.2.23 => [v6.0.0, ]
+...Success: perl-DB_File v1.8.0 => [v1.8.0, ]
+...Plan:    perl-cpanminus => [, ]
+...Try:     perl-cpanminus => v1.7.0
+...Refining version: perl-cpanminus v1.7 => [, ]
+....Plan:    perl-local-lib => [v2.0, ]
+....Try:     perl-local-lib => v2.19.0
+....Refining version: perl-local-lib v2.19 => [v2.0.0, ]
+.....Plan:    perl => [v5.10, ]
+.....Try:     perl => v5.16.3
+.....Refining version: perl 5.16.3 => [v5.10.0, ]
+......Plan:    perl-vc3-modules => [v0.5.0, ]
+......Try:     perl-vc3-modules => v0.5.0
+......Refining version: perl-vc3-modules v0.5.0 => [v0.5.0, ]
+......Success: perl-vc3-modules v0.5.0 => [v0.5.0, ]
+.....Success: perl v5.16.3 => [v5.10.0, ]
+....Success: perl-local-lib v2.19.0 => [v2.0.0, ]
+...Success: perl-cpanminus v1.7.0 => [, ]
+..Success: perl-bioperl v1.6.0 => [v1.6.0, ]
+..Plan:    ncbi-blast => [v2.2.28, ]
+..Try:     ncbi-blast => v2.2.28
+..Refining version: ncbi-blast v2.2.28 => [v2.2.28, ]
+..Success: ncbi-blast v2.2.28 => [v2.2.28, ]
+..Plan:    perl-inline => [v0.8, ]
+..Try:     perl-inline => v0.8.0
+..Refining version: perl-inline v0.8 => [v0.8.0, ]
+...Plan:    perl-cpanminus => [, ]
+...Try:     perl-cpanminus => v1.7.0
+...Refining version: perl-cpanminus v1.7 => [, ]
+....Plan:    perl-local-lib => [v2.0, ]
+....Try:     perl-local-lib => v2.19.0
+....Refining version: perl-local-lib v2.19 => [v2.0.0, ]
+.....Plan:    perl => [v5.10, ]
+.....Try:     perl => v5.16.3
+.....Refining version: perl 5.16.3 => [v5.10.0, ]
+......Plan:    perl-vc3-modules => [v0.5.0, ]
+......Try:     perl-vc3-modules => v0.5.0
+......Refining version: perl-vc3-modules v0.5.0 => [v0.5.0, ]
+......Success: perl-vc3-modules v0.5.0 => [v0.5.0, ]
+.....Success: perl v5.16.3 => [v5.10.0, ]
+....Success: perl-local-lib v2.19.0 => [v2.0.0, ]
+...Success: perl-cpanminus v1.7.0 => [, ]
+..Success: perl-inline v0.8.0 => [v0.8.0, ]
+..Plan:    augustus => [v2.4, ]
+..Try:     augustus => v2.4.0
+..Refining version: augustus v2.4 => [v2.4.0, ]
+..Success: augustus v2.4.0 => [v2.4.0, ]
+..Plan:    exonerate => [v2.2, ]
+..Try:     exonerate => v2.2.0
+..Refining version: exonerate v2.2.0 => [v2.2.0, ]
+...Plan:    c-build-environment => [v1.0, ]
+...Try:     c-build-environment => v1.0.0
+...Refining version: c-build-environment v1.0 => [v1.0.0, ]
+....Plan:    make => [v3.5, ]
+....Try:     make => v3.82.0
+....Refining version: make v3.82 => [v3.5.0, ]
+....Success: make v3.82.0 => [v3.5.0, ]
+....Plan:    gcc => [v4.5, ]
+....Try:     gcc => v4.8.5
+....Refining version: gcc 4.8.5 => [v4.5.0, ]
+....Success: gcc v4.8.5 => [v4.5.0, ]
+...Success: c-build-environment v1.0.0 => [v1.0.0, ]
+...Plan:    glib => [v2.0, ]
+...Try:     glib => v2.18.1
+...Refining version: glib v2.18.1 => [v2.0.0, ]
+....Plan:    libffi => [v3.2.1, ]
+....Try:     libffi => v3.2.1
+....Refining version: libffi v3.2.1 => [v3.2.1, ]
+.....Plan:    c-build-environment => [v1.0, ]
+.....Try:     c-build-environment => v1.0.0
+.....Refining version: c-build-environment v1.0 => [v1.0.0, ]
+......Plan:    make => [v3.5, ]
+......Try:     make => v3.82.0
+......Refining version: make v3.82 => [v3.5.0, ]
+......Success: make v3.82.0 => [v3.5.0, ]
+......Plan:    gcc => [v4.5, ]
+......Try:     gcc => v4.8.5
+......Refining version: gcc 4.8.5 => [v4.5.0, ]
+......Success: gcc v4.8.5 => [v4.5.0, ]
+.....Success: c-build-environment v1.0.0 => [v1.0.0, ]
+....Success: libffi v3.2.1 => [v3.2.1, ]
+....Plan:    python => [v2.5, ]
+....Try:     python => v2.7.5
+....Refining version: python 2.7.5 => [v2.5.0, ]
+....Success: python v2.7.5 => [v2.5.0, ]
+....Plan:    c-build-environment => [v1.0, ]
+....Try:     c-build-environment => v1.0.0
+....Refining version: c-build-environment v1.0 => [v1.0.0, ]
+.....Plan:    make => [v3.5, ]
+.....Try:     make => v3.82.0
+.....Refining version: make v3.82 => [v3.5.0, ]
+.....Success: make v3.82.0 => [v3.5.0, ]
+.....Plan:    gcc => [v4.5, ]
+.....Try:     gcc => v4.8.5
+.....Refining version: gcc 4.8.5 => [v4.5.0, ]
+.....Success: gcc v4.8.5 => [v4.5.0, ]
+....Success: c-build-environment v1.0.0 => [v1.0.0, ]
+....Plan:    gettext => [v0.19, ]
+....Try:     gettext => v0.19.8
+....Refining version: gettext v0.19.8 => [v0.19.0, ]
+.....Plan:    c-build-environment => [v1.0, ]
+.....Try:     c-build-environment => v1.0.0
+.....Refining version: c-build-environment v1.0 => [v1.0.0, ]
+......Plan:    make => [v3.5, ]
+......Try:     make => v3.82.0
+......Refining version: make v3.82 => [v3.5.0, ]
+......Success: make v3.82.0 => [v3.5.0, ]
+......Plan:    gcc => [v4.5, ]
+......Try:     gcc => v4.8.5
+......Refining version: gcc 4.8.5 => [v4.5.0, ]
+......Success: gcc v4.8.5 => [v4.5.0, ]
+.....Success: c-build-environment v1.0.0 => [v1.0.0, ]
+....Success: gettext v0.19.8 => [v0.19.0, ]
+....Plan:    zlib => [v1.2, ]
+....Try:     zlib => v1.2.8
+....Refining version: zlib v1.2.8 => [v1.2.0, ]
+.....Plan:    c-build-environment => [v1.0, ]
+.....Try:     c-build-environment => v1.0.0
+.....Refining version: c-build-environment v1.0 => [v1.0.0, ]
+......Plan:    make => [v3.5, ]
+......Try:     make => v3.82.0
+......Refining version: make v3.82 => [v3.5.0, ]
+......Success: make v3.82.0 => [v3.5.0, ]
+......Plan:    gcc => [v4.5, ]
+......Try:     gcc => v4.8.5
+......Refining version: gcc 4.8.5 => [v4.5.0, ]
+......Success: gcc v4.8.5 => [v4.5.0, ]
+.....Success: c-build-environment v1.0.0 => [v1.0.0, ]
+....Success: zlib v1.2.8 => [v1.2.0, ]
+....Plan:    pcre => [v8.13, ]
+....Try:     pcre => v8.39.0
+....Refining version: pcre v8.39 => [v8.13.0, ]
+.....Plan:    c-build-environment => [v1.0, ]
+.....Try:     c-build-environment => v1.0.0
+.....Refining version: c-build-environment v1.0 => [v1.0.0, ]
+......Plan:    make => [v3.5, ]
+......Try:     make => v3.82.0
+......Refining version: make v3.82 => [v3.5.0, ]
+......Success: make v3.82.0 => [v3.5.0, ]
+......Plan:    gcc => [v4.5, ]
+......Try:     gcc => v4.8.5
+......Refining version: gcc 4.8.5 => [v4.5.0, ]
+......Success: gcc v4.8.5 => [v4.5.0, ]
+.....Success: c-build-environment v1.0.0 => [v1.0.0, ]
+....Success: pcre v8.39.0 => [v8.13.0, ]
+...Success: glib v2.18.1 => [v2.0.0, ]
+..Success: exonerate v2.2.0 => [v2.2.0, ]
+..Plan:    snap => [v2013.11.29, ]
+..Try:     snap => v2013.11.29
+..Refining version: snap v2013.11.29 => [v2013.11.29, ]
+...Plan:    perl => [v5.8, ]
+...Try:     perl => v5.16.3
+...Refining version: perl 5.16.3 => [v5.8.0, ]
+....Plan:    perl-vc3-modules => [v0.5.0, ]
+....Try:     perl-vc3-modules => v0.5.0
+....Refining version: perl-vc3-modules v0.5.0 => [v0.5.0, ]
+....Success: perl-vc3-modules v0.5.0 => [v0.5.0, ]
+...Success: perl v5.16.3 => [v5.8.0, ]
+..Success: snap v2013.11.29 => [v2013.11.29, ]
+..Plan:    perl-dbd-sqlite => [v1.5, ]
+..Try:     perl-dbd-sqlite => v1.5.0
+..Refining version: perl-dbd-sqlite v1.5 => [v1.5.0, ]
+...Plan:    perl-cpanminus => [, ]
+...Try:     perl-cpanminus => v1.7.0
+...Refining version: perl-cpanminus v1.7 => [, ]
+....Plan:    perl-local-lib => [v2.0, ]
+....Try:     perl-local-lib => v2.19.0
+....Refining version: perl-local-lib v2.19 => [v2.0.0, ]
+.....Plan:    perl => [v5.10, ]
+.....Try:     perl => v5.16.3
+.....Refining version: perl 5.16.3 => [v5.10.0, ]
+......Plan:    perl-vc3-modules => [v0.5.0, ]
+......Try:     perl-vc3-modules => v0.5.0
+......Refining version: perl-vc3-modules v0.5.0 => [v0.5.0, ]
+......Success: perl-vc3-modules v0.5.0 => [v0.5.0, ]
+.....Success: perl v5.16.3 => [v5.10.0, ]
+....Success: perl-local-lib v2.19.0 => [v2.0.0, ]
+...Success: perl-cpanminus v1.7.0 => [, ]
+..Success: perl-dbd-sqlite v1.5.0 => [v1.5.0, ]
+..Plan:    perl-dbi => [v1.6, ]
+..Try:     perl-dbi => v1.6.0
+..Refining version: perl-dbi v1.6 => [v1.6.0, ]
+...Plan:    perl-cpanminus => [, ]
+...Try:     perl-cpanminus => v1.7.0
+...Refining version: perl-cpanminus v1.7 => [, ]
+....Plan:    perl-local-lib => [v2.0, ]
+....Try:     perl-local-lib => v2.19.0
+....Refining version: perl-local-lib v2.19 => [v2.0.0, ]
+.....Plan:    perl => [v5.10, ]
+.....Try:     perl => v5.16.3
+.....Refining version: perl 5.16.3 => [v5.10.0, ]
+......Plan:    perl-vc3-modules => [v0.5.0, ]
+......Try:     perl-vc3-modules => v0.5.0
+......Refining version: perl-vc3-modules v0.5.0 => [v0.5.0, ]
+......Success: perl-vc3-modules v0.5.0 => [v0.5.0, ]
+.....Success: perl v5.16.3 => [v5.10.0, ]
+....Success: perl-local-lib v2.19.0 => [v2.0.0, ]
+...Success: perl-cpanminus v1.7.0 => [, ]
+..Success: perl-dbi v1.6.0 => [v1.6.0, ]
+.Success: maker v2.31.0 => [, ]
+processing for augustus-v2.4.0
+preparing 'augustus' for x86_64/redhat7.5.1804
+downloading 'augustus.2.4.src.tar.gz' from http://download.virtualclusters.org/builder-files
+details: /tmp/worker-1000-24980/t.13/t_19578e6e/vc3-root/x86_64/redhat7.5.1804/augustus/v2.4.0/augustus-build-log
+processing for gcc-v4.8.5 (from host)
+preparing 'gcc' for x86_64/redhat7.5.1804
+details: /tmp/worker-1000-24980/t.13/t_19578e6e/vc3-root/x86_64/redhat7.5.1804/gcc/v4.8.5/gcc-build-log
+processing for gzip-v1.5.0 (from host)
+preparing 'gzip' for x86_64/redhat7.5.1804
+details: /tmp/worker-1000-24980/t.13/t_19578e6e/vc3-root/x86_64/redhat7.5.1804/gzip/v1.5.0/gzip-build-log
+processing for make-v3.82.0 (from host)
+preparing 'make' for x86_64/redhat7.5.1804
+details: /tmp/worker-1000-24980/t.13/t_19578e6e/vc3-root/x86_64/redhat7.5.1804/make/v3.82.0/make-build-log
+processing for ncbi-blast-v2.2.28
+preparing 'ncbi-blast' for x86_64/redhat7.5.1804
+downloading 'ncbi-blast-2.2.28+-x64-linux.tar.gz' from http://download.virtualclusters.org/builder-files
+details: /tmp/worker-1000-24980/t.13/t_19578e6e/vc3-root/x86_64/redhat7.5.1804/ncbi-blast/v2.2.28/ncbi-blast-build-log
+processing for ncbi-rmblastn-v2.2.28
+preparing 'ncbi-rmblastn' for x86_64/redhat7.5.1804
+downloading 'ncbi-rmblastn-2.2.28-x64-linux.tar.gz' from http://download.virtualclusters.org/builder-files
+details: /tmp/worker-1000-24980/t.13/t_19578e6e/vc3-root/x86_64/redhat7.5.1804/ncbi-rmblastn/v2.2.28/ncbi-rmblastn-build-log
+processing for perl-vc3-modules-v0.5.0
+preparing 'perl-vc3-modules' for x86_64/redhat7.5.1804
+downloading 'perl-vc3-modules-005.tar' from http://download.virtualclusters.org/builder-files
+details: /tmp/worker-1000-24980/t.13/t_19578e6e/vc3-root/x86_64/redhat7.5.1804/perl-vc3-modules/v0.5.0/perl-vc3-modules-build-log
+processing for pkg-config-v0.27.1 (from host)
+preparing 'pkg-config' for x86_64/redhat7.5.1804
+details: /tmp/worker-1000-24980/t.13/t_19578e6e/vc3-root/x86_64/redhat7.5.1804/pkg-config/v0.27.1/pkg-config-build-log
+processing for python-v2.7.5 (from host)
+preparing 'python' for x86_64/redhat7.5.1804
+details: /tmp/worker-1000-24980/t.13/t_19578e6e/vc3-root/x86_64/redhat7.5.1804/python/v2.7.5/python-build-log
+processing for repeatmasker-common-v4.0.6
+preparing 'repeatmasker-common' for x86_64/redhat7.5.1804
+details: /tmp/worker-1000-24980/t.13/t_19578e6e/vc3-root/x86_64/redhat7.5.1804/repeatmasker-common/v4.0.6/repeatmasker-common-build-log
+processing for sed-v4.2.2 (from host)
+preparing 'sed' for x86_64/redhat7.5.1804
+details: /tmp/worker-1000-24980/t.13/t_19578e6e/vc3-root/x86_64/redhat7.5.1804/sed/v4.2.2/sed-build-log
+processing for tar-v1.26.0 (from host)
+preparing 'tar' for x86_64/redhat7.5.1804
+details: /tmp/worker-1000-24980/t.13/t_19578e6e/vc3-root/x86_64/redhat7.5.1804/tar/v1.26.0/tar-build-log
+processing for trf-v4.9.0
+preparing 'trf' for x86_64/redhat7.5.1804
+details: /tmp/worker-1000-24980/t.13/t_19578e6e/vc3-root/x86_64/redhat7.5.1804/trf/v4.9.0/trf-build-log
+processing for which-v2.20.0
+preparing 'which' for x86_64/redhat7.5.1804
+downloading 'which-x86_64-2.20-1.tar.gz' from http://download.virtualclusters.org/builder-files
+details: /tmp/worker-1000-24980/t.13/t_19578e6e/vc3-root/x86_64/redhat7.5.1804/which/v2.20.0/which-build-log
+processing for c-build-environment-v1.0.0
+preparing 'c-build-environment' for x86_64/redhat7.5.1804
+details: /tmp/worker-1000-24980/t.13/t_19578e6e/vc3-root/x86_64/redhat7.5.1804/c-build-environment/v1.0.0/c-build-environment-build-log
+processing for perl-v5.16.3 (from host)
+preparing 'perl' for x86_64/redhat7.5.1804
+details: /tmp/worker-1000-24980/t.13/t_19578e6e/vc3-root/x86_64/redhat7.5.1804/perl/v5.16.3/perl-build-log
+processing for vc3-builder-hands-v1.0.0
+preparing 'vc3-builder-hands' for x86_64/redhat7.5.1804
+details: /tmp/worker-1000-24980/t.13/t_19578e6e/vc3-root/x86_64/redhat7.5.1804/vc3-builder-hands/v1.0.0/vc3-builder-hands-build-log
+processing for berkeley-db-v6.2.23
+preparing 'berkeley-db' for x86_64/redhat7.5.1804
+downloading 'db-6.2.23.tar.gz' from http://download.virtualclusters.org/builder-files
+details: /tmp/worker-1000-24980/t.13/t_19578e6e/vc3-root/x86_64/redhat7.5.1804/berkeley-db/v6.2.23/berkeley-db-build-log
+processing for gettext-v0.19.8
+preparing 'gettext' for x86_64/redhat7.5.1804
+downloading 'gettext-0.19.8.tar.gz' from http://download.virtualclusters.org/builder-files
+details: /tmp/worker-1000-24980/t.13/t_19578e6e/vc3-root/x86_64/redhat7.5.1804/gettext/v0.19.8/gettext-build-log
+processing for libffi-v3.2.1
+preparing 'libffi' for x86_64/redhat7.5.1804
+downloading 'libffi-3.2.1.tar.gz' from http://download.virtualclusters.org/builder-files
+details: /tmp/worker-1000-24980/t.13/t_19578e6e/vc3-root/x86_64/redhat7.5.1804/libffi/v3.2.1/libffi-build-log
+processing for openmpi-v1.10.0
+preparing 'openmpi' for x86_64/redhat7.5.1804
+downloading 'openmpi-1.10.3.tar.gz' from http://download.virtualclusters.org/builder-files
+details: /tmp/worker-1000-24980/t.13/t_19578e6e/vc3-root/x86_64/redhat7.5.1804/openmpi/v1.10.0/openmpi-build-log
+processing for pcre-v8.39.0
+preparing 'pcre' for x86_64/redhat7.5.1804
+downloading 'pcre-8.39.tar.gz' from http://download.virtualclusters.org/builder-files
+details: /tmp/worker-1000-24980/t.13/t_19578e6e/vc3-root/x86_64/redhat7.5.1804/pcre/v8.39.0/pcre-build-log
+processing for perl-local-lib-v2.19.0
+preparing 'perl-local-lib' for x86_64/redhat7.5.1804
+downloading 'local-lib-2.000019.tar.gz' from http://download.virtualclusters.org/builder-files
+details: /tmp/worker-1000-24980/t.13/t_19578e6e/vc3-root/x86_64/redhat7.5.1804/perl-local-lib/v2.19.0/perl-local-lib-build-log
+processing for snap-v2013.11.29
+preparing 'snap' for x86_64/redhat7.5.1804
+downloading 'snap-2013-11-29.tar.gz' from http://download.virtualclusters.org/builder-files
+details: /tmp/worker-1000-24980/t.13/t_19578e6e/vc3-root/x86_64/redhat7.5.1804/snap/v2013.11.29/snap-build-log
+processing for zlib-v1.2.8
+preparing 'zlib' for x86_64/redhat7.5.1804
+downloading 'zlib-1.2.8.tar.gz' from http://download.virtualclusters.org/builder-files
+details: /tmp/worker-1000-24980/t.13/t_19578e6e/vc3-root/x86_64/redhat7.5.1804/zlib/v1.2.8/zlib-build-log
+processing for glib-v2.18.1
+preparing 'glib' for x86_64/redhat7.5.1804
+downloading 'glib-2.48.1.tar.gz' from http://download.virtualclusters.org/builder-files
+details: /tmp/worker-1000-24980/t.13/t_19578e6e/vc3-root/x86_64/redhat7.5.1804/glib/v2.18.1/glib-build-log
+processing for hmmer-v3.1.0
+preparing 'hmmer' for x86_64/redhat7.5.1804
+downloading 'hmmer-3.1b2.tar.gz' from http://download.virtualclusters.org/builder-files
+details: /tmp/worker-1000-24980/t.13/t_19578e6e/vc3-root/x86_64/redhat7.5.1804/hmmer/v3.1.0/hmmer-build-log
+processing for perl-DB_File-v1.8.0
+preparing 'perl-DB_File' for x86_64/redhat7.5.1804
+downloading 'DB_File-1.838.tar.gz' from http://download.virtualclusters.org/builder-files
+details: /tmp/worker-1000-24980/t.13/t_19578e6e/vc3-root/x86_64/redhat7.5.1804/perl-DB_File/v1.8.0/perl-DB_File-build-log
+processing for perl-cpanminus-v1.7.0
+preparing 'perl-cpanminus' for x86_64/redhat7.5.1804
+downloading 'cpanminus-1.7.distribution' from http://download.virtualclusters.org/builder-files
+details: /tmp/worker-1000-24980/t.13/t_19578e6e/vc3-root/x86_64/redhat7.5.1804/perl-cpanminus/v1.7.0/perl-cpanminus-build-log
+processing for exonerate-v2.2.0
+preparing 'exonerate' for x86_64/redhat7.5.1804
+downloading 'exonerate-2.2.0.tar.gz' from http://download.virtualclusters.org/builder-files
+details: /tmp/worker-1000-24980/t.13/t_19578e6e/vc3-root/x86_64/redhat7.5.1804/exonerate/v2.2.0/exonerate-build-log
+processing for perl-bioperl-v1.6.0
+preparing 'perl-bioperl' for x86_64/redhat7.5.1804
+details: /tmp/worker-1000-24980/t.13/t_19578e6e/vc3-root/x86_64/redhat7.5.1804/perl-bioperl/v1.6.0/perl-bioperl-build-log
+processing for perl-bit-vector-v7.4.0
+preparing 'perl-bit-vector' for x86_64/redhat7.5.1804
+details: /tmp/worker-1000-24980/t.13/t_19578e6e/vc3-root/x86_64/redhat7.5.1804/perl-bit-vector/v7.4.0/perl-bit-vector-build-log
+processing for perl-dbd-sqlite-v1.5.0
+preparing 'perl-dbd-sqlite' for x86_64/redhat7.5.1804
+details: /tmp/worker-1000-24980/t.13/t_19578e6e/vc3-root/x86_64/redhat7.5.1804/perl-dbd-sqlite/v1.5.0/perl-dbd-sqlite-build-log
+processing for perl-dbi-v1.6.0
+preparing 'perl-dbi' for x86_64/redhat7.5.1804
+details: /tmp/worker-1000-24980/t.13/t_19578e6e/vc3-root/x86_64/redhat7.5.1804/perl-dbi/v1.6.0/perl-dbi-build-log
+processing for perl-file-which-v1.2.0
+preparing 'perl-file-which' for x86_64/redhat7.5.1804
+details: /tmp/worker-1000-24980/t.13/t_19578e6e/vc3-root/x86_64/redhat7.5.1804/perl-file-which/v1.2.0/perl-file-which-build-log
+processing for perl-forks-v0.36.0
+preparing 'perl-forks' for x86_64/redhat7.5.1804
+details: /tmp/worker-1000-24980/t.13/t_19578e6e/vc3-root/x86_64/redhat7.5.1804/perl-forks/v0.36.0/perl-forks-build-log
+processing for perl-inline-v0.8.0
+preparing 'perl-inline' for x86_64/redhat7.5.1804
+details: /tmp/worker-1000-24980/t.13/t_19578e6e/vc3-root/x86_64/redhat7.5.1804/perl-inline/v0.8.0/perl-inline-build-log
+processing for perl-inline-c-v0.76.0
+preparing 'perl-inline-c' for x86_64/redhat7.5.1804
+details: /tmp/worker-1000-24980/t.13/t_19578e6e/vc3-root/x86_64/redhat7.5.1804/perl-inline-c/v0.76.0/perl-inline-c-build-log
+processing for perl-io-all-v0.86.0
+preparing 'perl-io-all' for x86_64/redhat7.5.1804
+details: /tmp/worker-1000-24980/t.13/t_19578e6e/vc3-root/x86_64/redhat7.5.1804/perl-io-all/v0.86.0/perl-io-all-build-log
+processing for perl-lwp-simple-v6.15.0
+preparing 'perl-lwp-simple' for x86_64/redhat7.5.1804
+details: /tmp/worker-1000-24980/t.13/t_19578e6e/vc3-root/x86_64/redhat7.5.1804/perl-lwp-simple/v6.15.0/perl-lwp-simple-build-log
+processing for perl-text-soundex-v3.0.0
+preparing 'perl-text-soundex' for x86_64/redhat7.5.1804
+details: /tmp/worker-1000-24980/t.13/t_19578e6e/vc3-root/x86_64/redhat7.5.1804/perl-text-soundex/v3.0.0/perl-text-soundex-build-log
+processing for perl-unsafe-signals-v0.3.0
+preparing 'perl-unsafe-signals' for x86_64/redhat7.5.1804
+details: /tmp/worker-1000-24980/t.13/t_19578e6e/vc3-root/x86_64/redhat7.5.1804/perl-unsafe-signals/v0.3.0/perl-unsafe-signals-build-log
+processing for perl-want-v0.29.0
+preparing 'perl-want' for x86_64/redhat7.5.1804
+details: /tmp/worker-1000-24980/t.13/t_19578e6e/vc3-root/x86_64/redhat7.5.1804/perl-want/v0.29.0/perl-want-build-log
+processing for repeatmasker-free-v4.0.6
+preparing 'repeatmasker-free' for x86_64/redhat7.5.1804
+downloading 'RepeatMasker-open-4-0-6.tar.gz' from http://download.virtualclusters.org/builder-files
+downloading 'VC3_RepeatMasker-open-4-0-6.configure' from http://download.virtualclusters.org/builder-files
+details: /tmp/worker-1000-24980/t.13/t_19578e6e/vc3-root/x86_64/redhat7.5.1804/repeatmasker-free/v4.0.6/repeatmasker-free-build-log
+processing for repeatmasker-v4.0.6
+preparing 'repeatmasker' for x86_64/redhat7.5.1804
+details: /tmp/worker-1000-24980/t.13/t_19578e6e/vc3-root/x86_64/redhat7.5.1804/repeatmasker/v4.0.6/repeatmasker-build-log
+processing for maker-v2.31.0
+preparing 'maker' for x86_64/redhat7.5.1804
+details: /tmp/worker-1000-24980/t.13/t_19578e6e/vc3-root/x86_64/redhat7.5.1804/maker/v2.31.0/maker-build-log
