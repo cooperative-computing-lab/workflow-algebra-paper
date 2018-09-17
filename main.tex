@@ -38,7 +38,7 @@ dthain@nd.edu}
 Scientific workflows 
 are often designed with a
 particular compute site in mind.
-As the site changes,
+As a user changes sites
 the workflow needs to adjust.
 These changes include 
 moving from a cluster to a cloud,
@@ -103,7 +103,7 @@ moved to different sites.
 
 Differences between execution sites
 makes porting workflows hard 
-and makes debugging complex. 
+and debugging complex. 
 It is common for workflows to
 assume libraries and programs are available, 
 use  applications configured for only one operating system,
@@ -123,7 +123,7 @@ compute sites.
 Unfortunately, each site may have a unique
 operating system or lack the necessary software.
 Users need a way to quickly switch between
-each site, but we do not want to rewrite the 
+each site, but do not want to rewrite the 
 workflow for each one.
 The simple answer is to use containers,
 but how do we easily apply these containers 
@@ -135,6 +135,11 @@ and Singularity\cite{Singularity}).
 
 The ability to combine available tools is required
 to handle unique configurations and environments.
+% This is new
+Unfortunately, 
+no single tool can address these changes, 
+but multiple tools are needed in conjunction.
+%back to og
 As the number and variety of tools increases, 
 the complexity of combining them increases as well.
 For example, if 
@@ -158,14 +163,13 @@ The variable nature of required tools indicates
 the importance of only applying tools to a workflow as needed, 
 rather than adding them to the workflow specification at each site.
 
-To address this problem,
-we define an algebra for workflow transformations
+We define an algebra for workflow transformations
 to address the complexity of
 nesting different tools and technologies.
 Based on the sandbox model of execution, 
 this algebra formalizes the operations
-for applying transformations to tasks, 
-producing new tasks.
+for applying transformations to tasks
+which produce new tasks.
 These transformations can then be applied
 in series to produce a task that incorporates
 all applied transformations.
@@ -191,8 +195,8 @@ to provide consistent environments,
 a resource monitor to give accurate usage stats, and
 a sandbox to isolate the available files and workspace.
 The second shows a failure handler that captures a
-core dump and converts it into a stacktrace, 
-streamlining analysis and lower data transfer.
+core-dump and converts it into a stack trace, 
+streamlining analysis and lowering data transfer.
 The final case study executes the same workflow on
 several sites using an environment builder 
 that dynamically builds required software at each task. 
@@ -219,11 +223,15 @@ workflow structure.
 \includegraphics[width=\columnwidth]{graphics/example_workflow.pdf}
 \caption{Example Workflow.}
 \small
-\emph{This basic workflow shows
-standard split-join behavior. The first task partitions the work, the next set of tasks analyze the individual 
-partitions, and the last task joins them all back 
-together. Each task executes independently from each other
-and are often run on batch execution systems.}
+\emph{This workflow shows
+standard split-join behavior. 
+Each circle is a task and 
+and each square is a file. 
+The first task partitions the data, 
+the next set of tasks analyze the individual partitions, 
+and the last task aggregates them. 
+Each task executes independently
+and tasks are often run on batch execution systems.}
 \label{fig:workflow}
 \end{figure}
 
@@ -273,9 +281,11 @@ can be expressed in a portable way.
 A set of external transformations are used to
 modify the tasks as needed for the local site.  Porting a workflow from one site
 to another becomes the simple job of adjusting a few transformations rather than
-rewriting the workflow from scratch.  If it is necessary to transform
-the workflow in a new way, a new transformation can be written and shared
-with others so that it can be applied to many workflows.
+rewriting the workflow from scratch.  
+If it is necessary to transform
+the workflow in a new way, 
+a transformation can be written, shared
+, and applied to many workflows.
 
 % Challenges of wrappers
 However, our experience is that designing and using transformations
@@ -301,7 +311,7 @@ with complex task definitions fails.  There are several reasons for this:
     or change the environment 
     collide using basic substitution.
     Addressing this uncertainty with shell quoting only 
-    further complicates the matter, and may
+    further complicates the matter and may
     change the execution.
 
         
@@ -425,8 +435,8 @@ let T1 = {
 Note that the schema is fixed.
 Every task consists of a command with a \verb$pre$, \verb$cmd$, and \verb$post$ component, a list of input files, a list of output files,
 a dictionary of environment variables, 
-and a dictionary of necessary resources.  
-Also note that the formal list of
+and a dictionary of necessary resources (all defined in detail later).  
+Importantly, the formal list of
 inputs and outputs is distinct from the command-line to be executed,
 as guessing the precise set of files needed from 
 an arbitrary command-line is difficult.  For example,
@@ -466,7 +476,8 @@ file lists.
 
 
 Applying a sandbox to a task is 
-a multi-step process for ensuring consistent environment creation:
+a multi-step process for ensuring consistent environment creation.
+It goes as such:
 \begin{enumerate}
     \item Allocate/ensure appropriate space for execution, based on resources.
     \item Create sandbox directory.
@@ -481,7 +492,7 @@ a multi-step process for ensuring consistent environment creation:
 
 \begin{figure}[H]
 \includegraphics[width=\columnwidth]{graphics/sandboxing_short.pdf}
-\caption{The Sandbox Model of Task Execution.
+\caption{The sandbox model of task execution.
 This shows the different steps needed to isolate
 the task from the underlying workflow environment
 to prevent side-effect on the environment and 
@@ -515,12 +526,12 @@ define Singularity(T)
 }
 \end{verbatim}
 \end{framed}
-\caption{Abstract {\tt Singularity} Transformation}
+\caption{Abstract {\tt Singularity} transformation}
 \small
 \emph{Describes the Singularity command, added files
 (such as image and output log), and increases
 the required disk space. Note, several of the
-variable are unbound, and will be resolved when
+variables are unbound and will be resolved when
 applied to a task. Unaltered fields are left
 undefined.}
 \label{sing-wrap}
@@ -530,7 +541,7 @@ undefined.}
 
 \subsection{Transformations as Functions}
 
-A transformation is an abstraction of a task,
+A transformation is an abstraction of a task
 and provides the information needed
 to translate a raw program invocation into 
 a properly defined task. 
@@ -554,7 +565,8 @@ Singularity requires
 additional space (3G) to account 
 for the Singularity image. 
 Here, resources are not defined as
-a static value, but in addition the to 
+a static value.
+Rather they are in addition the to 
 underlying resource. 
 Additionally, the Singularity transformation 
 does not
@@ -635,9 +647,9 @@ In practice this is achieved by
 producing a script that
 defines the task, as seen in \Cref{task-script}.
 
-The second variable, {\tt T.ID},
-is key to this method's success, as 
-the ability to uniquely identify
+The second variable, {\tt T.ID}
+is key to this method's success.
+The ability to uniquely identify
 each task provides a clear
 mapping to the workflow.
 A unique identifier is created
@@ -690,8 +702,8 @@ sim.exe < in.txt > out.txt
 
 \subsection{Applying the Sandbox Model}
 
-This creation of a script from a task
-focuses on isolating just the transformation,
+The creation of a script from a task
+focuses on isolating just the transformation
 but relies on finalization of the task sandbox
 laid out in \Cref{sec:sandboxing}.
 To consistently apply the sandbox model to a task
@@ -715,7 +727,7 @@ inputs are linked into it.
 The process changes directories,
 exports the environment, and
 runs the {\tt pre} commands.
-After this the environment is setup,
+After the environment is set up,
 the task {\tt cmd} can run.
 
 
@@ -742,7 +754,7 @@ are composable, but not commutable.
 These transformation are not commutable because
 the ordering in which they are applied changes the core 
 evaluation of the task.
-This is by design, to allow for the differentiation
+This is, by design, to allow for the differentiation
 of transformation ordering.
 
 Transformations, in general, are composable.
@@ -813,12 +825,12 @@ define RMonitor(T) {
 }
 \end{verbatim}
 \end{framed}
-\caption{Verbose JSON object file specification.} 
+ \caption{Verbose JSON object file specification.} 
 \small
-\emph{In this example the resource monitor uses
-a statically name default summary, "summary".
-In this case, the the summary 
-file is statically named, but will collide in
+\emph{In this example, the resource monitor uses
+a statically named default summary, "summary".
+In this case, the summary 
+file's name is static and will collide in
 the global workflow context. To avert this
 collision the file is specified with its 
 static inner\_name, and a unique outer\_name
@@ -828,21 +840,22 @@ using the task's ID.}
 
 
 \begin{figure*}[t]
-\includegraphics[width=\textwidth]{graphics/environment_extrapolation_pwrap.pdf}
+\includegraphics[width=\textwidth]{graphics/environment_extrapolation_pwrap_ctask_simp.pdf}
 \caption{General approach to Sandbox model of execution}
 \small
 \emph{The environment that exists at task execution is
-the result of several sources. 
+derived from several sources. 
 The environment starts at the DAG where 
-variable are resolved internally and from the host machine.
+variables are resolved internally and from the host machine.
 These values define the task's initial environment.
-Transformations are applied to this task which extend the
-environment, but are only applied at execution. 
+Transforms are applied to the task which extend the
+environment (\textit{a, b, c} are generic transforms), 
+but applied at execution. 
 At the execution site, the environment is
 defined by the execution node and batch system.
-As execution starts, each transformation is
-applied and invokes its environment, limiting 
-their affect to that transformations execution.}
+A execution each transformation is
+applied and invokes its environment limited 
+to the transformation's execution.}
 \label{figure:env-extrap}
 \end{figure*}
 
@@ -862,7 +875,7 @@ This includes setting environment variables,
 configuring dependencies, and loading modules or software.
 For example, a Docker transformation would use ${pre}$ to load or pull images. 
 
-${Post}$ is a set of command that run after task invocation
+${post}$ is a set of command that run after task invocation
 and is used to 
 handle failure by interpreting or masking them,
 create outputs to prevent batch system failures from missing files,
@@ -874,7 +887,7 @@ allowing more nuanced debugging.
 
 The ${cmd}$ string outlines the context in which
 the underlying command is invoked.
-${Cmd}$ outlines how the underlying task is called
+${cmd}$ outlines how the underlying task is called
 and isolates the effects of the calling transformation.
 
 A benefit of separating the command into these parts
@@ -925,7 +938,7 @@ as the transformations are applied,
 but also maximal.
 This is typically the case used for cores.
 The number of cores does not expand as
-transformations are added, but reflects
+transformations are added but reflects
 the largest number of cores needed by any
 transformation.
 For example MPI utilizes a static number of cores, 
@@ -944,34 +957,36 @@ reflecting the total expected usage.
 
 %GIVE INTRO TO ENVIRONMENT HANDLING
 
-An important aspect of a task is the environment
-where the task is executed.
+An important aspect of a task is the
+execution environment.
 The environment defines a variety of values
-that control things such as available executables,
+that control execution such as available executables,
 required libraries and values,
-or even available machines on a cluster execution node.
+and available machines for cluster execution.
 However, the environment is often overlooked
 or ignored by the researcher,
-which can cause corruption, errors, and failures.
-This can be addressed directly on a single site,
+which causes corruption, errors, and failures.
+This can be mitigated on a single site,
 but as more sites are utilized managing these environments
 becomes unrealistic.
-Here we will discuss how the task environment is defined, 
-when transformations are applied, and how the
-final environment is resolved at execution.
+It is important to understand
+how the task environment is defined, 
+when transformations are applied, and how to
+direct the execution environment.
 
-The environment provided to a task varies between sites
-and evolves as a task is transformed and evaluated.
-The workflow is executed in the context 
-of the submitting machine's environment (${E_S}$). 
-As the workflow is evaluated,
-the environment is defined internally and from ${E_S}$,
-resulting in ${E_D}$.
-Tasks are created and 
-the environment that is specified by the task 
-is derived from ${E_D}$, resulting in ${E_T}$. 
-${E_S}$ is not included as variables would be
-incorrect or reference non-existent programs, libraries, and values
+\Cref{figure:env-extrap} illustrates many of the
+locations a task's environment, 
+or expected environment, 
+can be derived and how it
+changes over execution.
+The workflow is 
+executed with the submit machine's environment (${E_S}$), 
+defines an internal DAG environment (${E_D}$),
+and dispatches a task specific environment (${E_T}$).
+The task environment is defined with values derived from 
+the DAG and submit machine, but crucially should 
+not include variables that
+reference non-existent programs, libraries, and values
 at execution.
 
 After the task is produced, 
@@ -979,18 +994,19 @@ transformations are applied that may
 append, update, or mask the provided variables.
 As a transformation is applied, ${E_T}$ is 
 written out to a script.
-The transformation can also use the values set
-in ${E_T}$ to evaluate its environment.
+The transformation can update values set
+in the task and add values based on
+needed, such as applications to the $PATH$
+or libraries.
 Applying these transformations produces
-a chain of environments ${E_{Tr}}$ 
-(${E_a}$, ${E_b}$, ${E_c}$ in \Cref{figure:env-extrap}) 
-as a result. 
+a stack of environments 
+(${E_a}$, ${E_b}$, ${E_c}$) 
+that are applied at execution.
 
-Tasks are placed on an execution node. 
-The environment on the execution site
-varies from that of the submission site 
-and is influenced by the batch system and execution node. 
-The batch system environment(${E_B}$) provides
+Tasks are placed on an execution node, 
+where the environment may
+vary from the submit machine. 
+The batch system environment (${E_B}$) provides
 information about the assigned machines, available cores, and location of
 software modules and may be crucial 
 for applications that use MPI or modules. 
@@ -998,7 +1014,7 @@ The execution node environment (${E_E}$)
 defines information such as 
 local disks and available hardware.
 
-The simple method of applying the environment is to 
+The most basic method of invoking an environment is to 
 apply all variables either 
 at the beginning of execution or 
 just prior to the task invocation. 
@@ -1033,16 +1049,17 @@ of the task.
 This simple lightweight transformation isolates
 the execution namespace from the workflow namespace,
 which allows for file renaming.
-The sandbox is removed after successful execution,
+The sandbox is removed after execution,
 which eliminates local unspecified files from
-polluting the workflow namespace and disk quota.
-If a task does fail, the sandbox can be captured
-and analyzed.
+polluting the namespace and disk quota.
+The sandbox can be captured
+for analysis on failure.
 
 \subsection{Container Transform}
 
-A container transform utilizes the whole
-command structure.
+A container transform wraps tasks in a
+specified container for isolation and
+curated environments.
 A container $pre$ command is used to pull down
 or unpack containers.
 This is done separately to 
@@ -1086,8 +1103,8 @@ to track the process.
 The resource monitor benefits from the 
 sandbox directory as the isolation allows 
 the sandbox to be monitored for disk usage.
-This does not increase the resources
-but is used to enforce them.
+This does not increase the resource needs
+but enforces them.
 In addition to the executable and usage summary, 
 the resource monitor creates additional outputs
 such as the list of accessed files and 
@@ -1126,6 +1143,8 @@ requiring a image to run from and creating a log.
 Finally, a sandbox is created to isolate execution, 
 limiting file access when singularity 
 maps the current directory.
+With each additional transformation, we see the complexity of
+the system increase.
 }
 \label{figure:wrapping-of-task}
 \end{figure*}
@@ -1143,7 +1162,7 @@ configuring variables to include new libraries
 (such as {\tt LD\_PRELOAD}),
 or specifying a precise version of Java
 (by setting Java home and library paths).
-These types of transformation rely on the 
+These types of transform rely on the 
 ${pre}$ command to initialize the environment. 
 This can also be done using
 the ${environment}$ dictionary, though these
@@ -1162,7 +1181,7 @@ verifying if failure was due to limited resources,
 analyzing output files to prevent corrupted output,
 or process core-dumps into stack traces. 
 Regardless of workflow size,
-automating error handling helps to handled errors
+automating error handling helps to handle errors
 allowing the user to analyze and address problems quickly. 
 The error handling generally relies on the $post$ to 
 perform analysis based on the reported
@@ -1189,8 +1208,9 @@ different platforms.
 The definitions of these transformations can
 be seen earlier in \Cref{sing-wrap} and \Cref{json-file}
 for Singularity and the resource monitor respectively.
-To visualize the complexity that occurs when combining these
-\Cref{figure:wrapping-of-task} illustrates each transformation.
+\Cref{figure:wrapping-of-task} illustrates 
+the complexity that occurs when combining these
+transformations.
 
 
 \begin{framed}
@@ -1201,7 +1221,8 @@ To visualize the complexity that occurs when combining these
 Using the above {\tt makeflow} call, we executed a workflow 
 that runs BWA\cite{pmid20080505}.
 This workflow partitions a large query and runs 
-each chunk concurrently. 
+each chunk concurrently,
+similar to \Cref{fig:workflow}. 
 This workflow was used as the basis to evaluate 
 nesting the resource monitor and Singularity.
 This workflow was run in four configuration,
@@ -1211,7 +1232,7 @@ just the resource monitor,
 and the workflow with task sandboxes.
 We can examine the distribution of task
 execution time under these different 
-configuration in \Cref{figure:nest-task}
+configurations in \Cref{figure:nest-task}
 and see that there is minimal additional
 overhead for each transformation.
 For these runs, Singularity utilized
@@ -1227,8 +1248,9 @@ and affects performance.
 \includegraphics[width=\columnwidth]{graphics/divide_hist.pdf}
 \caption{Histogram of task execution with nested transformations.}
 \small
-\emph{The distribution of task execution grouped by applied
-transformations. 
+\emph{Distribution of task execution of BWA workflow
+grouped by applied transformations, 
+structured like \Cref{fig:workflow}. 
 The first configuration runs the resource monitor inside of
 a Singularity, the second runs just Singularity,
 the third runs just the resource-monitor, and the last
@@ -1270,7 +1292,7 @@ transferred back to the user.
 Enabling the capture of core-dumps depends
 on your systems default settings.
 A common default uses the "core" prefix for
-core dumps, but also limits their size. 
+core-dumps, but also limits their size. 
 To accommodate this, we set the $ulimit$
 to unlimited. After execution, if a 
 core-dump was created we process it using GDB.
@@ -1295,7 +1317,7 @@ define StackTrace(T) {
 }
 \end{verbatim}
 \end{framed}
-\caption{Stack Trace Transformation}
+\caption{Stack trace transformation}
 \small
 \emph{The stack trace transformation allows a user
 to capture a core-dump of a failed task and 
@@ -1308,8 +1330,8 @@ file prevents non-failed tasks from missing output.}
 \label{stacktrace}
 \end{figure}
 
-To evaluate this we wrote an application
-that
+To evaluate this,
+we wrote an application that
 allocates 1MB of memory and then
 fails roughly 20 percent
 of the time, creating a core-dump. 
@@ -1330,7 +1352,7 @@ more significant reductions.
 \begin{center}
 \begin{tabular}{| r | r | r | r |}
 \hline
-\multicolumn{1}{|c|}{Workflow} & \multicolumn{1}{|c|}{Failed} & \multicolumn{1}{|c|}{Total Core} & \multicolumn{1}{|c|}{Total Stack} \\
+\multicolumn{1}{|c|}{Workflow} & \multicolumn{1}{|c|}{Failed} & \multicolumn{1}{|c|}{Total Core-} & \multicolumn{1}{|c|}{Total Stack} \\
 \multicolumn{1}{|c|}{Tasks}    & \multicolumn{1}{|c|}{Tasks}  & \multicolumn{1}{|c|}{Dump Size}  & \multicolumn{1}{|c|}{Trace Size} \\ \hline
 10 & 4 & 3.7MB & 0.8KB \\ \hline
 100 & 24 & 28.6MB & 6.4KB\\ \hline
@@ -1415,7 +1437,7 @@ define VC3-Builder(T) {
 } }
 \end{verbatim}
 \end{framed}
-\caption{VC3-Builder Transformation}
+\caption{VC3-Builder transformation}
 \small
 \emph{VC3-Builder is typically  
 self-contained, and the specified
@@ -1425,9 +1447,9 @@ with restricted licenses that must be
 provided by the user. 
 As a result, the transformation must
 create the install structure and 
-extract these libraries to the correct
-location prior to VC3-Builder.
-We specify cores for the make threads and 
+extract libraries to the correct
+location for VC3-Builder.
+We specify cores for build threads and 
 increase the disk for the installation.
 }
 \label{vc3-builder}
@@ -1436,9 +1458,8 @@ increase the disk for the installation.
 This workflow was executed using Makeflow
 and distributed with Work Queue\cite{wq-python-pyhpc2011},
 a master-worker execution platform. 
-Workers were created on each target site,
-and tasks were distributed as worker were 
-scheduled.
+Workers were created on each site,
+and tasks were distributed to worker.
 To show the flexibility of transformations,
 workers were created on Stampede2,
 Jetstream, and HTCondor.
@@ -1497,6 +1518,14 @@ tasks\cite{chen2013balanced, chen-tcc-2015, chen-fgcs-2014}, spawning clean-up
 tasks to remove files\cite{cleanup_algo}, and 
 restructuring the workflow\cite{cluster_dep}.
 
+The similarities between these systems when comparing how
+a task is defined would allow for clear mapping of
+the above techniques each system.
+Importantly for this work, the underlying system continues
+to manage and submit tasks. 
+The transformation are 
+just applied and nested on top of them.
+
 We also see similar work aimed at 
 supporting containers natively.
 For these systems to support containers,
@@ -1522,17 +1551,17 @@ or extend to support functionality like Slacker\cite{194430}.
 
 In the complex intersection of scientific
 workflows and unique compute sites,
-a solution was needed to allow for
+a solution is needed to allow for
 quick flexible workflow transformations.
-We introduced an algebra that formalizes 
+We introduce an algebra that formalizes 
 task and workflow transformations. 
 In conjunction with the formalization,
-we also defined the sandbox model of execution
+we also define the sandbox model of execution
 which allows these transformation to be applied,
 but stay distinct in execution. 
-We discussed several 
+We discuss several 
 complications when designing for real workflows,
-and explained how we addressed them, such as 
+and explain how we addressed them, such as 
 file remapping, differentiating command parts,
 and clearly handling resources and environment.
 These methods were evaluated with three case studies.
@@ -1555,33 +1584,28 @@ resources utilized in this paper and where they can be found.
 Specific commits are mentioned to provide the exact version that was used.
 
 The first is CCTools, which is an open-source distributed computing 
-tool kit, containing Makeflow and Work Queue:
-\begin{framed}
-\noindent
-{\small https://github.com/nhazekam/cctools/commit/7ab0645}
-\end{framed}
-
+tool kit, containing Makeflow and Work Queue (\textbf{CCTools}).
 Second is the source for some of our example workflows,
-particularly BWA using in the first case study:
-\begin{framed}
-\noindent
-{\small https://github.com/cooperative-computing-lab/makeflow-examples/commit/600e13b}
-\end{framed}
-
-The last case study uses VC3-Builder, found here:
-\begin{framed}
-\noindent
-{\small https://github.com/vc3-project/vc3-builder/commit/dc285f9}
-\end{framed}
-
+particularly BWA using in the first case study (\textbf{Workflows}).
+The last case study uses VC3-Builder (\textbf{VC3-B}).
 All of the workflows, transformations, and auxiliary
-programs used to produce this paper, include the tex, found here:
+programs used to produce this paper, include the tex 
+(\textbf{Paper}).
 \begin{framed}
 \noindent
-{\small https://github.com/cooperative-computing-lab/workflow-algebra-paper/commit/be9d1e4}
+{\small \textbf{CCTools}:github.com/nhazekam/cctools/commit/7ab0645}
+
+\noindent
+{\small \textbf{Workflows}:github.com/cooperative-computing-lab/makeflow-examples/commit/600e13b}
+
+\noindent
+{\small \textbf{VC3-B}:github.com/vc3-project/vc3-builder/commit/dc285f9}
+
+\noindent
+{\small \textbf{Paper}:github.com/cooperative-computing-lab/workflow-algebra-paper/commit/549d4df}
 \end{framed}
 \noindent
-As this is self-referential the final commit may be different.
+As \textbf{Paper} is self-referential the final commit may be different.
 
 
 All of these repositories are open source and contain Makefiles
